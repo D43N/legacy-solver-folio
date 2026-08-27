@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/lib/reveal";
+import { CursorGlow, Typewriter } from "@/lib/interactive";
+import { useTheme } from "@/lib/theme";
 import {
   ArrowUpRight,
   ChevronDown,
@@ -9,6 +11,8 @@ import {
   Github,
   Send,
   Terminal,
+  Moon,
+  Sun,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
