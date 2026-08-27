@@ -101,18 +101,6 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    background-color: var(--color-background);
-    background-image: radial-gradient(
-      circle,
-      color-mix(in oklab, var(--primary) 10%, transparent) 1px,
-      transparent 1px
-    );
-    background-size: 26px 26px;
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
 
   body {
     background-color: var(--color-background);
