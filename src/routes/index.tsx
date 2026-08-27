@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "I solve real, messy legacy-system problems. PHP & CodeIgniter specialist working on enterprise HR platforms, sales ERPs, and compliance-critical integrations.",
+          "I solve real, messy legacy-system problems. PHP & CodeIgniter specialist working on enterprise HR platforms, sales ERPs, and statutory integrations.",
       },
       { property: "og:title", content: "Damien Lim — Software Developer" },
       {
@@ -40,45 +40,39 @@ const CASE_STUDIES = [
     id: "ims",
     index: "01",
     title: "IMS System Enhancements",
-    subtitle: "Ongoing feature development on a live internal IMS",
-    tags: ["PHP", "CodeIgniter", "MySQL", "Client-facing"],
-    problem:
-      "The business runs on an internal IMS that never stops evolving. Requests arrive constantly from real users — new workflows, reporting tweaks, edge cases nobody anticipated when the feature was first specced. The system can't pause for a rewrite; it has to absorb change while people are actively using it.",
-    did: "I manage the system end-to-end: triaging incoming requests, implementing features directly against the live codebase, and shipping enhancements in tight feedback loops with the people who asked for them. That means reading code written years ago, understanding why it behaves the way it does, and extending it without breaking the dozen things quietly depending on it.",
-    outcome:
-      "Requests turn around in days, not quarters. Clients get changes that fit how they actually work — because the person building the feature is the same person who heard the request, and who'll answer for it if it breaks.",
+    subtitle: "Feature development on a live internal IMS",
+    tags: ["PHP", "CodeIgniter", "MySQL"],
+    problem: "A business-critical IMS that can't pause. Requests arrive constantly — new workflows, edge cases, reporting tweaks.",
+    did: "I own it end-to-end: triage requests, extend years-old code without breaking what quietly depends on it, ship in tight feedback loops.",
+    outcome: "Turnarounds in days, not quarters. Features that fit how clients actually work.",
   },
   {
     id: "iras",
     index: "02",
     title: "IRAS APEX API Integration",
-    subtitle: "Migrating statutory reporting to Singapore's new government API",
-    tags: ["Government API", "Compliance-critical", "PHP", "Integration"],
-    problem:
-      "The HR system's statutory reporting ran on a legacy IRAS API that was being retired. The replacement — IRAS's APEX API — came with a new authentication model, new payload formats, and hard submission deadlines. Statutory reporting has zero room for error: a malformed submission isn't a bug report, it's a compliance failure for the client.",
-    did: "I mapped the old integration's behaviour field by field before writing anything new, then rebuilt the reporting pipeline against APEX — authentication, payload construction, error handling, and reconciliation. Every statutory scenario was validated against IRAS's test environment before it touched production data.",
-    outcome:
-      "A clean cutover with zero failed statutory submissions. The kind of project where success is invisible — filings go out on time, and nobody outside the integration layer ever knows it changed.",
+    subtitle: "Migrating statutory reporting to a new government API",
+    tags: ["Government API", "Compliance", "Integration"],
+    problem: "The legacy IRAS API was being retired. Statutory reporting leaves zero room for error — a bad submission is a compliance failure.",
+    did: "Mapped the old integration field by field, then rebuilt the pipeline against APEX: auth, payloads, error handling, reconciliation. Validated against IRAS's test environment before touching production.",
+    outcome: "Clean cutover. Zero failed submissions. Success nobody outside the integration layer ever noticed.",
   },
   {
     id: "ci4",
     index: "03",
     title: "CI1 → CI4 Migration",
-    subtitle: "Rebuilding a legacy HR platform's foundation — in flight",
+    subtitle: "Rebuilding a legacy HR platform's foundation",
     inProgress: true,
-    tags: ["CodeIgniter 1", "CodeIgniter 4", "Doctrine ORM", "Migration"],
-    problem:
-      "A CodeIgniter 1 HR platform — Leaves, Payroll, CPF, Attendance — carrying years of accumulated business logic. These aren't CRUD screens; CPF calculations and payroll runs are statutory, high-risk, and load-bearing. The framework underneath them is long past end-of-life, but the logic itself is the source of truth for how the business pays people.",
-    did: "I'm leading the migration with one rule above all: the legacy system defines correct behaviour. Business logic is treated as specification, ported deliberately rather than rewritten from assumptions. For the statutory modules, I run old and new in parallel and diff the outputs — a payroll run that doesn't match the legacy system to the cent doesn't ship. All while the live system keeps serving users.",
-    outcome:
-      "Modules are coming across verified, not just compiled. The end state is a modern, maintainable CI4 codebase that behaves exactly like the system people trust — because it was proven against it, module by module.",
+    tags: ["CodeIgniter 1", "CodeIgniter 4", "Doctrine ORM"],
+    problem: "A CI1 HR platform — Leaves, Payroll, CPF, Attendance — on an end-of-life framework. The logic is statutory and load-bearing; the foundation has to go.",
+    did: "Legacy behaviour is the spec. Statutory modules run old and new in parallel — a payroll run that doesn't match to the cent doesn't ship.",
+    outcome: "Modules coming across verified, not just compiled. A modern codebase that behaves exactly like the system people trust.",
   },
 ];
 
 const SKILLS = [
   {
     category: "Backend",
-    items: ["PHP", "CodeIgniter 1 & 4", "Doctrine ORM", "REST API design"],
+    items: ["PHP", "CodeIgniter 1 & 4", "Doctrine ORM", "REST APIs"],
   },
   {
     category: "Database",
@@ -86,11 +80,11 @@ const SKILLS = [
   },
   {
     category: "Frontend & Tooling",
-    items: ["JavaScript", "jQuery", "Bootstrap", "Git", "Composer"],
+    items: ["JavaScript", "jQuery", "Bootstrap", "Git"],
   },
   {
     category: "Integrations",
-    items: ["IRAS APEX API", "Third-party REST APIs", "ERP / HRIS data flows", "Legacy system interop"],
+    items: ["IRAS APEX API", "Third-party REST", "ERP / HRIS data flows"],
   },
 ];
 
@@ -116,11 +110,11 @@ function CaseStudyCard({ study }: { study: (typeof CASE_STUDIES)[number] }) {
 
   return (
     <Reveal>
-      <article className="overflow-hidden rounded-xl border border-border bg-card transition-shadow duration-300 hover:shadow-[0_8px_30px_-12px_oklch(0.48_0.075_195/0.15)]">
+      <article className="overflow-hidden rounded-xl border border-border bg-card transition-shadow duration-300 hover:shadow-[0_8px_30px_-12px_oklch(0.48_0.075_195/0.18)]">
         <button
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="flex w-full items-start gap-4 p-6 text-left sm:items-center sm:gap-6 sm:p-8"
+          className="flex w-full items-start gap-4 p-6 text-left sm:items-center sm:gap-6"
         >
           <span className="hidden font-mono text-sm text-muted-foreground sm:block">
             {study.index}
@@ -151,22 +145,22 @@ function CaseStudyCard({ study }: { study: (typeof CASE_STUDIES)[number] }) {
           }`}
         >
           <div className="min-h-0 overflow-hidden">
-            <div className="space-y-6 border-t border-border px-6 py-6 sm:px-8 sm:py-8">
+            <div className="space-y-5 border-t border-border px-6 py-6">
               {(
                 [
-                  ["The problem", study.problem],
+                  ["Problem", study.problem],
                   ["What I did", study.did],
-                  ["The outcome", study.outcome],
+                  ["Outcome", study.outcome],
                 ] as const
               ).map(([label, text]) => (
-                <div key={label} className="grid gap-2 sm:grid-cols-[140px_1fr] sm:gap-6">
+                <div key={label} className="grid gap-1.5 sm:grid-cols-[110px_1fr] sm:gap-6">
                   <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-primary">
                     {label}
                   </p>
                   <p className="text-sm leading-relaxed text-secondary-foreground">{text}</p>
                 </div>
               ))}
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {study.tags.map((tag) => (
                   <span
                     key={tag}
@@ -216,8 +210,8 @@ function ContactForm() {
       <textarea
         name="message"
         required
-        rows={5}
-        placeholder="What are you working on? A legacy system misbehaving? A role you're hiring for?"
+        rows={4}
+        placeholder="A role you're hiring for? A legacy system misbehaving?"
         className={`${fieldClass} resize-y`}
       />
       <button
@@ -235,7 +229,7 @@ function ContactForm() {
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Nav */}
       <header className="sticky top-0 z-10 border-b border-border/60 bg-background/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
@@ -260,21 +254,17 @@ function Index() {
         {/* Hero */}
         <section className="pb-24 pt-20 sm:pb-32 sm:pt-28">
           <Reveal>
-            <p className="font-mono text-sm text-primary">Software Developer</p>
+            <p className="font-mono text-sm text-primary">Software Developer · PHP / CodeIgniter</p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               Damien Lim
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-secondary-foreground">
-              I specialise in the unglamorous end of software: legacy enterprise systems that
-              people actually depend on. The ones with a decade of business logic baked in, where
-              "just rewrite it" isn't a plan — it's how you break payroll.
+            <p className="mt-6 max-w-xl text-xl leading-snug text-foreground">
+              I fix the systems everyone else is afraid to touch.
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              I work primarily in PHP — CodeIgniter 1 &amp; 4, Doctrine ORM, MySQL/MariaDB —
-              building and maintaining enterprise systems like HR platforms, sales ERPs, and the
-              integrations between them. I solve real, messy problems: migrations that can't
-              afford downtime, statutory APIs that can't afford mistakes, and features the
-              business needed yesterday.
+              Legacy enterprise software — HR platforms, sales ERPs, statutory integrations.
+              CodeIgniter 1 &amp; 4, Doctrine ORM, MySQL/MariaDB. The messy, business-critical
+              kind where "just rewrite it" is how you break payroll.
             </p>
           </Reveal>
           <Reveal delay={150}>
@@ -288,7 +278,7 @@ function Index() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
                 Get in touch
               </a>
@@ -312,44 +302,33 @@ function Index() {
           <Reveal>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-secondary-foreground">
               <p>
-                There's a version of debugging that looks good in talks: you form a hypothesis,
-                design an elegant experiment, and the bug confesses. My reality is less cinematic.
-                It's me, a legacy codebase with no tests, and a query log, tracing a symptom
-                backwards through layers of code written by people who left years ago — until the
-                thing that was supposed to be impossible is suddenly, obviously, the only thing it
-                could have been.
+                No elegant hypotheses. Just me, a legacy codebase with no tests, and a query
+                log — tracing a symptom backwards through code written by people who left years
+                ago, until the impossible thing is obviously the only thing it could have been.
               </p>
               <p>
-                My favourite example: notifications in one of our HR modules had quietly stopped
-                firing for exactly one employee. Everyone else was fine. I spent the better part of
-                a day walking the notification pipeline — cron, queue, mailer — all healthy. The
-                answer, when I finally cornered it, was an orphaned row in a mapping table: a
-                record pointing at a department that no longer existed, left behind by a delete
-                years earlier. One join was silently filtering that employee out of every
-                notification query. Deleted the row, notifications came back. One row. Most of a
-                day. That's the job, honestly — and I'd be lying if I said the moment the query
-                finally returned the row isn't one of the best feelings in this line of work.
+                Once, notifications stopped firing for exactly one employee. Cron: fine. Queue:
+                fine. Mailer: fine. A day of digging later, the culprit was one orphaned database
+                row — a mapping to a department deleted years earlier — silently filtering that
+                person out of every notification query. One row. Most of a day. Finding it was
+                the best part of my week.
               </p>
               <p>
-                Another time, a payroll figure was off by a few cents for a handful of employees —
-                only in months with unpaid leave, only when the leave crossed a weekend. The
-                rounding logic was fine. The proration logic was fine. The bug was in how the two
-                interacted, in a helper written in 2014, that nobody had touched because it had
-                never been wrong before. Fixing it took one line. Proving the one line was right
-                took a spreadsheet and the better part of a week.
+                Another time, payroll was off by a few cents — only with unpaid leave, only when
+                it crossed a weekend. The fix was one line in a helper from 2014. Proving the
+                line was right took a spreadsheet and the better part of a week.
               </p>
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-10 rounded-xl border border-border bg-surface p-6 sm:p-8">
+            <div className="mt-10 rounded-xl border border-border bg-surface p-6">
               <div className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.15em] text-primary">
                 <Terminal className="h-4 w-4" />
                 Currently exploring
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                On the side, I'm building a small tool that parses old CodeIgniter route files and
-                maps them against controller methods — born directly out of the CI1→CI4 migration,
-                because grep only gets you so far.
+                A small tool that parses CodeIgniter route files and maps them to controller
+                methods — born from the CI1→CI4 migration, because grep only gets you so far.
               </p>
             </div>
           </Reveal>
@@ -387,8 +366,8 @@ function Index() {
           <SectionHeading kicker="Contact" title="Let's talk" />
           <Reveal>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Hiring for a role, need help with a system that's showing its age, or just want to
-              compare notes on legacy PHP? My inbox is open.
+              Hiring, need help with a system showing its age, or want to compare notes on legacy
+              PHP? My inbox is open.
             </p>
           </Reveal>
           <div className="mt-10">
