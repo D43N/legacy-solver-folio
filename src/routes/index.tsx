@@ -280,7 +280,7 @@ function Index() {
 
 
 
-      <main id="top" className="mx-auto max-w-3xl px-6">
+      <main id="top" className="relative z-[1] mx-auto max-w-3xl px-6">
         {/* Hero */}
         <section className="pb-24 pt-20 sm:pb-32 sm:pt-28">
           <Reveal>
@@ -291,6 +291,18 @@ function Index() {
             <p className="mt-6 max-w-xl text-xl leading-snug text-foreground">
               I fix the systems everyone else is afraid to touch.
             </p>
+            <p className="mt-4 font-mono text-sm text-muted-foreground">
+              <span className="text-primary">$</span>{" "}
+              <Typewriter
+                phrases={[
+                  "tracing a bug through 12-year-old code",
+                  "migrating CI1 → CI4 without breaking payroll",
+                  "reconciling statutory submissions, to the cent",
+                ]}
+                className="text-secondary-foreground"
+              />
+            </p>
+
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
               Legacy enterprise software — HR platforms, sales ERPs, statutory integrations.
               CodeIgniter 1 &amp; 4, Doctrine ORM, MySQL/MariaDB. The messy, business-critical
