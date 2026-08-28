@@ -256,8 +256,7 @@ function Index() {
         </nav>
       </header>
 
-        </nav>
-      </header>
+
 
       <main id="top" className="mx-auto max-w-3xl px-6">
         {/* Hero */}
