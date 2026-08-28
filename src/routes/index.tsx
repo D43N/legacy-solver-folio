@@ -233,7 +233,8 @@ function ContactForm() {
 
 function Index() {
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen">
+      <CursorGlow />
       {/* Nav */}
       <header className="sticky top-0 z-10 border-b border-border/60 bg-background/80 backdrop-blur-sm">
         <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
@@ -250,7 +251,11 @@ function Index() {
             <a href="#contact" className="transition-colors hover:text-foreground">
               Contact
             </a>
+            <ThemeToggle />
           </div>
+        </nav>
+      </header>
+
         </nav>
       </header>
 
